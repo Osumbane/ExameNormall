@@ -27,7 +27,7 @@
 							Ola <sec:loggedInUserInfo field="username"/> | <a href="#">Meu Perfil</a> | <a href="/igsys/j_spring_security_logout">Logout</a>
 						</sec:ifLoggedIn>
 						<sec:ifNotLoggedIn>
-							<a href="/igsys/j_spring_security_login">Login</a>
+							<g:link controller="admin" action="login">Login</g:link>
 						</sec:ifNotLoggedIn>
 					</div>
 				</div>

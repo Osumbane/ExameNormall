@@ -121,6 +121,7 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'mz.co.igsys.Utilizador'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mz.co.igsys.UtilizadorPerfil'
 grails.plugin.springsecurity.authority.className = 'mz.co.igsys.Perfil'
+grails.plugin.springsecurity.auth.loginFormUrl = '/admin/login'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl='/pedido/index'
 
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
@@ -134,7 +135,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/**/css/**':       ['permitAll'],
         '/**/images/**':    ['permitAll'],
         '/**/favicon.ico':  ['permitAll'],
-        '/login/**':        ['permitAll'],
+        '/admin/login':        ['permitAll'],
         '/logout/**':       ['permitAll'],
         '/produto/index':   ['permitAll'],
         '/produto/**':      ['ROLE_ADMIN'],

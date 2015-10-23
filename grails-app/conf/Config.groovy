@@ -115,3 +115,38 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'mz.co.igsys.Utilizador'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mz.co.igsys.UtilizadorPerfil'
+grails.plugin.springsecurity.authority.className = 'mz.co.igsys.Perfil'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl='/pedido/index'
+
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+
+grails.plugin.springsecurity.interceptUrlMap = [
+        '/':                ['permitAll'],
+        '/index':           ['permitAll'],
+        '/index.gsp':       ['permitAll'],
+        '/assets/**':       ['permitAll'],
+        '/**/js/**':        ['permitAll'],
+        '/**/css/**':       ['permitAll'],
+        '/**/images/**':    ['permitAll'],
+        '/**/favicon.ico':  ['permitAll'],
+        '/login/**':        ['permitAll'],
+        '/logout/**':       ['permitAll'],
+        '/produto/index':   ['permitAll'],
+        '/produto/**':      ['ROLE_ADMIN'],
+        '/utilizador/**':   ['ROLE_ADMIN'],
+        '/cliente/show/**': ['ROLE_ADMIN', 'ROLE_GUEST'],
+        '/cliente/update':  ['ROLE_ADMIN', 'ROLE_GUEST'],
+        '/cliente/**':      ['ROLE_ADMIN'],
+        '/caractristica/**':['ROLE_ADMIN'],
+        '/desconto/**':     ['ROLE_ADMIN'],
+        '/opcao/index':     ['ROLE_ADMIN'],
+        '/pedido/index':    ['ROLE_ADMIN', 'ROLE_GUEST'],
+        '/pedido/show/**':  ['ROLE_ADMIN', 'ROLE_GUEST'],
+        '/**':              ['isAuthenticated()']
+]
+

@@ -13,6 +13,7 @@ class Cliente extends Base {
     String fax
     String website
     String email
+    Utilizador utilizador
 
     static hasMany = [pedidos: Pedido]
 

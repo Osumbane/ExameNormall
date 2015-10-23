@@ -7,7 +7,24 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require main
-*= require mobile
+*= require bootstrap
+*= require carousel
 *= require_self
 */
+
+.top-bar {
+    padding: 0 0 10px 0;
+}
+
+.user-menu {
+    text-align: right;
+}
+#main {
+    margin-top: 110px;
+}
+
+footer {
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+}

@@ -2,6 +2,15 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: clienteInstance, field: 'alteradoPor', 'error')} ">
+	<label for="alteradoPor">
+		<g:message code="cliente.alteradoPor.label" default="Alterado Por" />
+		
+	</label>
+	<g:select id="alteradoPor" name="alteradoPor.id" from="${mz.co.igsys.Utilizador.list()}" optionKey="id" value="${clienteInstance?.alteradoPor?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: clienteInstance, field: 'dataAlteracao', 'error')} ">
 	<label for="dataAlteracao">
 		<g:message code="cliente.dataAlteracao.label" default="Data Alteracao" />
@@ -83,6 +92,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: clienteInstance, field: 'criadoPor', 'error')} required">
+	<label for="criadoPor">
+		<g:message code="cliente.criadoPor.label" default="Criado Por" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="criadoPor" name="criadoPor.id" from="${mz.co.igsys.Utilizador.list()}" optionKey="id" required="" value="${clienteInstance?.criadoPor?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: clienteInstance, field: 'dataCriacao', 'error')} required">
 	<label for="dataCriacao">
 		<g:message code="cliente.dataCriacao.label" default="Data Criacao" />
@@ -107,6 +125,15 @@
 </li>
 </ul>
 
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: clienteInstance, field: 'utilizador', 'error')} required">
+	<label for="utilizador">
+		<g:message code="cliente.utilizador.label" default="Utilizador" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="utilizador" name="utilizador.id" from="${mz.co.igsys.Utilizador.list()}" optionKey="id" required="" value="${clienteInstance?.utilizador?.id}" class="many-to-one"/>
 
 </div>
 

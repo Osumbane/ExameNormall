@@ -24,6 +24,8 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="cliente.alteradoPor.label" default="Alterado Por" /></th>
+					
 						<g:sortableColumn property="dataAlteracao" title="${message(code: 'cliente.dataAlteracao.label', default: 'Data Alteracao')}" />
 					
 						<g:sortableColumn property="nome" title="${message(code: 'cliente.nome.label', default: 'Nome')}" />
@@ -34,15 +36,15 @@
 					
 						<g:sortableColumn property="telefone" title="${message(code: 'cliente.telefone.label', default: 'Telefone')}" />
 					
-						<g:sortableColumn property="fax" title="${message(code: 'cliente.fax.label', default: 'Fax')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${clienteInstanceList}" status="i" var="clienteInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${clienteInstance.id}">${fieldValue(bean: clienteInstance, field: "dataAlteracao")}</g:link></td>
+						<td><g:link action="show" id="${clienteInstance.id}">${fieldValue(bean: clienteInstance, field: "alteradoPor")}</g:link></td>
+					
+						<td><g:formatDate date="${clienteInstance.dataAlteracao}" /></td>
 					
 						<td>${fieldValue(bean: clienteInstance, field: "nome")}</td>
 					
@@ -51,8 +53,6 @@
 						<td>${fieldValue(bean: clienteInstance, field: "endereco")}</td>
 					
 						<td>${fieldValue(bean: clienteInstance, field: "telefone")}</td>
-					
-						<td>${fieldValue(bean: clienteInstance, field: "fax")}</td>
 					
 					</tr>
 				</g:each>

@@ -23,10 +23,10 @@
 			<thead>
 					<tr>
 
-						<g:sortableColumn property="codigo" title="${message(code: 'pedido.codigo.label', default: 'Codigo')}" />
-
 						<th><g:message code="pedido.cliente.label" default="Cliente" /></th>
-					
+
+						<th>Produto</th>
+						<th>Quantidade</th>
 						<g:sortableColumn property="custo" title="${message(code: 'pedido.custo.label', default: 'Custo')}" />
 					
 						<th>Estado</th>
@@ -38,21 +38,25 @@
 				<tbody>
 				<g:each in="${pedidoInstanceList}" status="i" var="pedidoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td>${fieldValue(bean: pedidoInstance, field: "codigo")}</td>
 
 						<td>${fieldValue(bean: pedidoInstance, field: "cliente")}</td>
 
+						<td>${fieldValue(bean: pedidoInstance, field: "produto")}</td>
+
+						<td>${fieldValue(bean: pedidoInstance, field: "quantidade")}</td>
+
 						<td>${fieldValue(bean: pedidoInstance, field: "custo")}</td>
 					
-						<td><g:formatBoolean boolean="${pedidoInstance.activo}" /></td>
+						<td>${pedidoInstance.estado}</td>
 
 						<td>
 							<div class="pull-right hidden-phone">
 								<g:form url="[resource:pedidoInstance, action:'delete']" method="DELETE">
 									<fieldset class="buttons">
-										<g:link class="btn btn-default btn-xs" action="edit" resource="${pedidoInstance}" ><i class="fa fa-pencil"></i></g:link>
-										<g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" />
+										<sec:ifAllGranted roles="ROLE_ADMIN">
+											<g:link class="btn btn-default btn-xs" action="edit" resource="${pedidoInstance}" ><i class="fa fa-pencil"></i></g:link>
+											<g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" />
+										</sec:ifAllGranted>
 									</fieldset>
 								</g:form>
 							</div>

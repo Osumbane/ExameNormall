@@ -16,11 +16,13 @@
 				</g:eachError>
 			</ul>
 		</g:hasErrors>
+		<sec:ifAllGranted roles="ROLE_ADMIN">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="btn btn-info" action="index"><i class="fa fa-list"></i> utilizadores</g:link></li>
 			</ul>
 		</div>
+		</sec:ifAllGranted>
 		<div class="panel">
 			<header class="panel-heading"><g:message code="default.create.label" args="[entityName]" /></header>
 			<div class="panel-body">

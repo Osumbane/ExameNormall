@@ -10,13 +10,16 @@ class Pedido extends Base {
     int quantidade
     BigDecimal custo
     String observacoes
-
+    String estado
 
     static belongsTo = [cliente: Cliente, produto: Produto]
     static hasMany = [estados: EstadoPedido, detalhes: DetalhePedido]
 
     static constraints = {
         codigo nullable: true
-        custo nullable: false
+        custo nullable: true
+        estado nullable: true, inList: ['SUBMETIDO', 'PAGO', 'EM PRODUCAO', 'ENTREGUE']
+        observacoes nullable: true
+
     }
 }

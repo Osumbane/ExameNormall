@@ -83,6 +83,7 @@
                         <i class="fa fa-shopping-cart"></i> <span>Pedidos</span>
                     </g:link>
                 </li>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
                 <li>
                     <g:link controller="cliente" action="index">
                         <i class="fa fa-users"></i> <span>Clientes</span>
@@ -93,6 +94,7 @@
                         <i class="fa fa-archive"></i> <span>Produtos</span>
                     </g:link>
                 </li>
+                </sec:ifAllGranted>
                 <li>
                     <g:link controller="utilizador" action="index">
                         <i class="fa fa-user"></i> <span>Utilizadores</span>

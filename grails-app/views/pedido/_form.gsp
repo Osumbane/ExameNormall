@@ -1,5 +1,13 @@
 <%@ page import="mz.co.igsys.Pedido" %>
 
+<div class="form-group ${hasErrors(bean: pedidoInstance, field: 'cliente', 'error')} required">
+	<label for="cliente">
+		<g:message code="pedido.cliente.label" default="Cliente" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="cliente" name="cliente.id" from="${mz.co.igsys.Cliente.list()}" optionKey="id" required="" value="${pedidoInstance?.cliente?.id}" class="form-control"/>
+
+</div>
 
 <div class="form-group ${hasErrors(bean: pedidoInstance, field: 'produto', 'error')} required">
 	<label for="produto">
@@ -18,38 +26,18 @@
 	<g:field name="quantidade" type="number" value="${pedidoInstance.quantidade}" required="" class="form-control"/>
 
 </div>
+<g:if test="${pedidoInstance.id}">
+	<div class="form-group ${hasErrors(bean: pedidoInstance, field: 'observacoes', 'error')} required">
+		<label for="estado">
+			Estado
+		</label>
+		<g:select class="form-control" name="estado" from="${['SUBMETIDO', 'PAGO', 'EM PRODUCAO', 'ENTREGUE']}" value="${pedidoInstance?.estado}" />
 
-<div class="form-group ${hasErrors(bean: pedidoInstance, field: 'codigo', 'error')} ">
-	<label for="codigo">
-		<g:message code="pedido.codigo.label" default="Codigo" />
-		
-	</label>
-	<g:textField name="codigo" value="${pedidoInstance?.codigo}" class="form-control"/>
-
-</div>
-
-<div class="form-group ${hasErrors(bean: pedidoInstance, field: 'cliente', 'error')} required">
-	<label for="cliente">
-		<g:message code="pedido.cliente.label" default="Cliente" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="cliente" name="cliente.id" from="${mz.co.igsys.Cliente.list()}" optionKey="id" required="" value="${pedidoInstance?.cliente?.id}" class="form-control"/>
-
-</div>
-
-<div class="form-group ${hasErrors(bean: pedidoInstance, field: 'custo', 'error')} required">
-	<label for="custo">
-		<g:message code="pedido.custo.label" default="Custo" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="custo" value="${fieldValue(bean: pedidoInstance, field: 'custo')}" required="" class="form-control"/>
-
-</div>
-
+	</div>
+</g:if>
 <div class="form-group ${hasErrors(bean: pedidoInstance, field: 'observacoes', 'error')} required">
 	<label for="observacoes">
 		<g:message code="pedido.observacoes.label" default="Observacoes" />
-		<span class="required-indicator">*</span>
 	</label>
 	<g:textArea class="form-control" name="observacoes" required="" value="${pedidoInstance?.observacoes}"/>
 

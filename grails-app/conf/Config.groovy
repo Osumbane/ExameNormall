@@ -139,7 +139,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logout/**':       ['permitAll'],
         '/produto/index':   ['permitAll'],
         '/produto/**':      ['ROLE_ADMIN'],
-        '/utilizador/**':   ['ROLE_ADMIN'],
+        '/utilizador/**':   ['ROLE_ADMIN', 'ROLE_GUEST'],
         '/cliente/show/**': ['ROLE_ADMIN', 'ROLE_GUEST'],
         '/cliente/update':  ['ROLE_ADMIN', 'ROLE_GUEST'],
         '/cliente/**':      ['ROLE_ADMIN'],

@@ -11,11 +11,13 @@
 		<g:if test="${flash.message}">
 			<div class="alert alert-success" role="status">${flash.message}</div>
 		</g:if>
+<sec:ifAllGranted roles="ROLE_ADMIN">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="btn btn-info" action="create"><i class="fa fa-plus"></i> <g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+	</sec:ifAllGranted>
 		<div class="panel">
 			<header class="panel-heading">Utilizadores</header>
 			<div class="panel-body">
@@ -39,7 +41,7 @@
 								<g:form url="[resource:utilizadorInstance, action:'delete']" method="DELETE">
 									<fieldset class="buttons">
 										<g:link class="btn btn-default btn-xs" action="edit" resource="${utilizadorInstance}" ><i class="fa fa-pencil"></i></g:link>
-										<g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" />
+									<sec:ifAllGranted roles="ROLE_ADMIN"><g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" /></sec:ifAllGranted>
 									</fieldset>
 								</g:form>
 							</div>

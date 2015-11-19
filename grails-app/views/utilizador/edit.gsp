@@ -17,12 +17,14 @@
 			</g:eachError>
 		</ul>
 	</g:hasErrors>
+<sec:ifAllGranted roles="ROLE_ADMIN">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><g:link class="btn btn-info" action="index"><i class="fa fa-list"></i> Utilizadores</g:link></li>
 				<li><g:link class="btn btn-info" action="create"><i class="fa fa-plus"></i> <g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+	</sec:ifAllGranted>
 		<div class="panel">
 			<header class="panel-heading"><g:message code="default.edit.label" args="[entityName]" /></header>
 			<div class="panel-body">

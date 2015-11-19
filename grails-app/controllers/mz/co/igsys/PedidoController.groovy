@@ -35,7 +35,11 @@ class PedidoController {
             return
         }
 
+        Produto produto = pedidoInstance.produto
+        pedidoInstance.custo = produto.precoBase * pedidoInstance.quantidade
+        pedidoInstance.estado = "SUBMETIDO"
         pedidoInstance.save flush:true
+
 
         request.withFormat {
             form multipartForm {
@@ -62,6 +66,9 @@ class PedidoController {
             return
         }
 
+
+        Produto produto = pedidoInstance.produto
+        pedidoInstance.custo = produto.precoBase * pedidoInstance.quantidade
         pedidoInstance.save flush:true
 
         request.withFormat {

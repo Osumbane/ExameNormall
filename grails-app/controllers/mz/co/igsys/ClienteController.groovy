@@ -39,8 +39,8 @@ class ClienteController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'cliente.label', default: 'Cliente'), clienteInstance.id])
-                redirect clienteInstance
+                flash.message = "Cliente cadastrado com sucesso"
+                redirect action:"index", method:"GET"
             }
             '*' { respond clienteInstance, [status: CREATED] }
         }
@@ -66,8 +66,8 @@ class ClienteController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Cliente.label', default: 'Cliente'), clienteInstance.id])
-                redirect clienteInstance
+                flash.message = "Cliente actualizado com sucesso"
+                redirect action:"index", method:"GET"
             }
             '*'{ respond clienteInstance, [status: OK] }
         }

@@ -39,8 +39,8 @@ class ProdutoController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'produto.label', default: 'Produto'), produtoInstance.id])
-                redirect produtoInstance
+                flash.message = "Produto cadastrado com sucesso"
+                redirect action: "index", method: "GET"
             }
             '*' { respond produtoInstance, [status: CREATED] }
         }
@@ -66,8 +66,8 @@ class ProdutoController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Produto.label', default: 'Produto'), produtoInstance.id])
-                redirect produtoInstance
+                flash.message = "Produto actualizado com sucesso"
+                redirect action: "index", method: "GET"
             }
             '*'{ respond produtoInstance, [status: OK] }
         }

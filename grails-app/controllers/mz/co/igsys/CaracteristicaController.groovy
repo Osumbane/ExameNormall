@@ -10,9 +10,13 @@ class CaracteristicaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    def index(int id) {
+
+        Produto produto = Produto.findById(id)
+
+        Integer max = 10
         params.max = Math.min(max ?: 10, 100)
-        respond Caracteristica.list(params), model:[caracteristicaInstanceCount: Caracteristica.count()]
+        respond Caracteristica.list(params), model:[caracteristicaInstanceCount: Caracteristica.count(), produtoInstance: produto]
     }
 
     def show(Caracteristica caracteristicaInstance) {

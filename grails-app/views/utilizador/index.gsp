@@ -3,63 +3,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'utilizador.label', default: 'Utilizador')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-utilizador" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<g:if test="${flash.message}">
+			<div class="alert alert-success" role="status">${flash.message}</div>
+		</g:if>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="btn btn-info" action="create"><i class="fa fa-plus"></i> <g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-utilizador" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
+		<div class="panel">
+			<header class="panel-heading">Utilizadores</header>
+			<div class="panel-body">
 			<table class="table table-bordered">
 			<thead>
 					<tr>
-					
-						<th><g:message code="utilizador.alteradoPor.label" default="Alterado Por" /></th>
-					
-						<g:sortableColumn property="dataAlteracao" title="${message(code: 'utilizador.dataAlteracao.label', default: 'Data Alteracao')}" />
-					
 						<g:sortableColumn property="username" title="${message(code: 'utilizador.username.label', default: 'Username')}" />
-					
-						<g:sortableColumn property="password" title="${message(code: 'utilizador.password.label', default: 'Password')}" />
-					
-						<th><g:message code="utilizador.criadoPor.label" default="Criado Por" /></th>
-					
-						<g:sortableColumn property="accountExpired" title="${message(code: 'utilizador.accountExpired.label', default: 'Account Expired')}" />
+						<th></th>
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${utilizadorInstanceList}" status="i" var="utilizadorInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${utilizadorInstance.id}">${fieldValue(bean: utilizadorInstance, field: "alteradoPor")}</g:link></td>
-					
-						<td><g:formatDate date="${utilizadorInstance.dataAlteracao}" /></td>
+
 					
 						<td>${fieldValue(bean: utilizadorInstance, field: "username")}</td>
-					
-						<td>${fieldValue(bean: utilizadorInstance, field: "password")}</td>
-					
-						<td>${fieldValue(bean: utilizadorInstance, field: "criadoPor")}</td>
-					
-						<td><g:formatBoolean boolean="${utilizadorInstance.accountExpired}" /></td>
-					
+
+						<td>
+							<div class="pull-right hidden-phone">
+								<g:form url="[resource:utilizadorInstance, action:'delete']" method="DELETE">
+									<fieldset class="buttons">
+										<g:link class="btn btn-default btn-xs" action="edit" resource="${utilizadorInstance}" ><i class="fa fa-pencil"></i></g:link>
+										<g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" />
+									</fieldset>
+								</g:form>
+							</div>
+						</td>
+
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
 				<g:paginate total="${utilizadorInstanceCount ?: 0}" />
+			</div>
 			</div>
 		</div>
 	</body>

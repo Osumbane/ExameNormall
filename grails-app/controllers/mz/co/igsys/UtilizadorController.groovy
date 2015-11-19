@@ -36,10 +36,13 @@ class UtilizadorController {
 
         utilizadorInstance.save flush: true
 
+        Perfil perfil = Perfil.findByAuthority(params.authority)
+        new UtilizadorPerfil(utilizador: utilizadorInstance, peril: perfil).save(flush: true)
+
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'utilizador.label', default: 'Utilizador'), utilizadorInstance.id])
-                redirect utilizadorInstance
+                flash.message = "Utilizador cadastrado com sucesso"
+                redirect action: "index", method: "GET"
             }
             '*' { respond utilizadorInstance, [status: CREATED] }
         }
@@ -65,8 +68,8 @@ class UtilizadorController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Utilizador.label', default: 'Utilizador'), utilizadorInstance.id])
-                redirect utilizadorInstance
+                flash.message = "Utilizador actualizado com sucesso"
+                redirect action: "index", method: "GET"
             }
             '*' { respond utilizadorInstance, [status: OK] }
         }

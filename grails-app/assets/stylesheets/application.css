@@ -34,3 +34,11 @@ footer {
     border-top: 1px solid #333;
     padding: 10px 0;
 }
+
+.box {
+    text-align: center;
+}
+
+.box p {
+    padding: 10px 30px;
+}

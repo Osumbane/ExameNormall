@@ -19,9 +19,9 @@
                     <asset:image src="slide01.jpg" alt="" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Example headline.</h1>
-                            <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            <h1>Serigrafia</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                     <asset:image src="slide02.jpg" alt="" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
+                            <h1>Gráfica</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                     <asset:image src="slide03.jpg" alt="" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>One more for good measure.</h1>
+                            <h1>Consultoria</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
                 </div>
@@ -57,19 +57,25 @@
         </div><!-- /.carousel -->
         <div class="container marketing">
         <div id="page-body" role="main">
-            <h1>Welcome to Grails</h1>
-            <p>Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display whatever
-            content you may choose. Below is a list of controllers that are currently deployed in this application,
-            click on each to execute its default action:</p>
+            <div class="row">
+                <div class="col-md-4 box">
+                    <h3>Serigrafia</h3>
+                    <asset:image src="slide01-thumb.jpg" alt="" />
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 
-            <div id="controller-list" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                </ul>
+                </div>
+                <div class="col-md-4 box">
+                    <h3>Gráfica</h3>
+                    <asset:image src="slide02-thumb.jpg" alt="" />
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                </div>
+                <div class="col-md-4 box">
+                    <h3>Consultoria</h3>
+                    <asset:image src="slide03-thumb.jpg" alt="" />
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                </div>
             </div>
         </div>
         </div>

@@ -8,58 +8,62 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-pedido" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+	<g:if test="${flash.message}">
+		<div class="alert alert-success" role="status">${flash.message}</div>
+	</g:if>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="btn btn-info" action="create"><i class="fa fa-plus"></i> <g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="list-pedido" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
+		<div class="panel">
+			<header class="panel-heading">Pedidos</header>
+			<div class="panel-body">
 			<table class="table table-bordered">
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="dataAlteracao" title="${message(code: 'pedido.dataAlteracao.label', default: 'Data Alteracao')}" />
-					
+
 						<g:sortableColumn property="codigo" title="${message(code: 'pedido.codigo.label', default: 'Codigo')}" />
+
+						<th><g:message code="pedido.cliente.label" default="Cliente" /></th>
 					
 						<g:sortableColumn property="custo" title="${message(code: 'pedido.custo.label', default: 'Custo')}" />
 					
-						<g:sortableColumn property="activo" title="${message(code: 'pedido.activo.label', default: 'Activo')}" />
-					
-						<th><g:message code="pedido.cliente.label" default="Cliente" /></th>
-					
-						<g:sortableColumn property="dataCriacao" title="${message(code: 'pedido.dataCriacao.label', default: 'Data Criacao')}" />
-					
+						<th>Estado</th>
+
+						<th></th>
+
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${pedidoInstanceList}" status="i" var="pedidoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${pedidoInstance.id}">${fieldValue(bean: pedidoInstance, field: "dataAlteracao")}</g:link></td>
-					
 						<td>${fieldValue(bean: pedidoInstance, field: "codigo")}</td>
-					
+
+						<td>${fieldValue(bean: pedidoInstance, field: "cliente")}</td>
+
 						<td>${fieldValue(bean: pedidoInstance, field: "custo")}</td>
 					
 						<td><g:formatBoolean boolean="${pedidoInstance.activo}" /></td>
-					
-						<td>${fieldValue(bean: pedidoInstance, field: "cliente")}</td>
-					
-						<td><g:formatDate date="${pedidoInstance.dataCriacao}" /></td>
-					
+
+						<td>
+							<div class="pull-right hidden-phone">
+								<g:form url="[resource:pedidoInstance, action:'delete']" method="DELETE">
+									<fieldset class="buttons">
+										<g:link class="btn btn-default btn-xs" action="edit" resource="${pedidoInstance}" ><i class="fa fa-pencil"></i></g:link>
+										<g:actionSubmit class="btn btn-default btn-xs" action="delete" value="x" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Tem certeza?')}');" />
+									</fieldset>
+								</g:form>
+							</div>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>
 			</table>
 			<div class="pagination">
 				<g:paginate total="${pedidoInstanceCount ?: 0}" />
+			</div>
 			</div>
 		</div>
 	</body>

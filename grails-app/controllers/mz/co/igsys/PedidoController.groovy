@@ -39,8 +39,8 @@ class PedidoController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'pedido.label', default: 'Pedido'), pedidoInstance.id])
-                redirect pedidoInstance
+                flash.message = "Pedido registado com sucesso"
+                redirect action:"index", method:"GET"
             }
             '*' { respond pedidoInstance, [status: CREATED] }
         }
@@ -66,8 +66,8 @@ class PedidoController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Pedido.label', default: 'Pedido'), pedidoInstance.id])
-                redirect pedidoInstance
+                flash.message = "Pedido actualizado com sucesso"
+                redirect action:"index", method:"GET"
             }
             '*'{ respond pedidoInstance, [status: OK] }
         }

@@ -1,6 +1,6 @@
 package mz.co.igsys
 
-class Utilizador extends Base implements Serializable {
+class User extends Base implements Serializable {
 
 	private static final long serialVersionUID = 1
 
@@ -13,7 +13,7 @@ class Utilizador extends Base implements Serializable {
 	boolean accountLocked
 	boolean passwordExpired
 
-	Utilizador(String username, String password) {
+	User(String username, String password) {
 		this()
 		this.username = username
 		this.password = password
@@ -26,7 +26,7 @@ class Utilizador extends Base implements Serializable {
 
 	@Override
 	boolean equals(other) {
-		is(other) || (other instanceof Utilizador && other.username == username)
+		is(other) || (other instanceof User && other.username == username)
 	}
 
 	@Override
@@ -34,8 +34,8 @@ class Utilizador extends Base implements Serializable {
 		username
 	}
 
-	Set<Perfil> getAuthorities() {
-		UtilizadorPerfil.findAllByUtilizador(this)*.perfil
+	Set<Perfill> getAuthorities() {
+		UserPerfill.findAllByUtilizador(this)*.perfil
 	}
 
 	def beforeInsert() {

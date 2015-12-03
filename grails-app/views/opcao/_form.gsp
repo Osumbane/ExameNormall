@@ -67,7 +67,7 @@
     <li><g:link controller="detalhePedido" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="detalhePedido" action="create" params="['opcao.id': opcaoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'detalhePedido.label', default: 'DetalhePedido')])}</g:link>
+<g:link controller="detalhePedido" action="create" params="['opcao.id': opcaoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'detalhePedido.label', default: 'DetalheInscricao')])}</g:link>
 </li>
 </ul>
 

@@ -6,14 +6,14 @@ import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 @ToString(cache = true, includeNames = true, includePackage = false)
-class UtilizadorPerfil implements Serializable {
+class UserPerfill implements Serializable {
 
     private static final long serialVersionUID = 1
 
-    Utilizador utilizador
-    Perfil perfil
+    User utilizador
+    Perfill perfil
 
-    UtilizadorPerfil(Utilizador u, Perfil r) {
+    UserPerfill(User u, Perfill r) {
         this()
         utilizador = u
         perfil = r
@@ -21,7 +21,7 @@ class UtilizadorPerfil implements Serializable {
 
     @Override
     boolean equals(other) {
-        if (!(other instanceof UtilizadorPerfil)) {
+        if (!(other instanceof UserPerfill)) {
             return false
         }
 
@@ -36,7 +36,7 @@ class UtilizadorPerfil implements Serializable {
         builder.toHashCode()
     }
 
-    static UtilizadorPerfil get(long utilizadorId, long perfilId) {
+    static UserPerfill get(long utilizadorId, long perfilId) {
         criteriaFor(utilizadorId, perfilId).get()
     }
 
@@ -45,56 +45,56 @@ class UtilizadorPerfil implements Serializable {
     }
 
     private static DetachedCriteria criteriaFor(long utilizadorId, long perfilId) {
-        UtilizadorPerfil.where {
-            utilizador == Utilizador.load(utilizadorId) &&
-                    perfil == Perfil.load(perfilId)
+        UserPerfill.where {
+            utilizador == User.load(utilizadorId) &&
+                    perfil == Perfill.load(perfilId)
         }
     }
 
-    static UtilizadorPerfil create(Utilizador utilizador, Perfil perfil, boolean flush = false) {
-        def instance = new UtilizadorPerfil(utilizador, perfil)
+    static UserPerfill create(User utilizador, Perfill perfil, boolean flush = false) {
+        def instance = new UserPerfill(utilizador, perfil)
         instance.save(flush: flush, insert: true)
         instance
     }
 
-    static boolean remove(Utilizador u, Perfil r, boolean flush = false) {
+    static boolean remove(User u, Perfill r, boolean flush = false) {
         if (u == null || r == null) return false
 
-        int rowCount = UtilizadorPerfil.where { utilizador == u && perfil == r }.deleteAll()
+        int rowCount = UserPerfill.where { utilizador == u && perfil == r }.deleteAll()
 
         if (flush) {
-            UtilizadorPerfil.withSession { it.flush() }
+            UserPerfill.withSession { it.flush() }
         }
 
         rowCount
     }
 
-    static void removeAll(Utilizador u, boolean flush = false) {
+    static void removeAll(User u, boolean flush = false) {
         if (u == null) return
 
-        UtilizadorPerfil.where { utilizador == u }.deleteAll()
+        UserPerfill.where { utilizador == u }.deleteAll()
 
         if (flush) {
-            UtilizadorPerfil.withSession { it.flush() }
+            UserPerfill.withSession { it.flush() }
         }
     }
 
-    static void removeAll(Perfil r, boolean flush = false) {
+    static void removeAll(Perfill r, boolean flush = false) {
         if (r == null) return
 
-        UtilizadorPerfil.where { perfil == r }.deleteAll()
+        UserPerfill.where { perfil == r }.deleteAll()
 
         if (flush) {
-            UtilizadorPerfil.withSession { it.flush() }
+            UserPerfill.withSession { it.flush() }
         }
     }
 
     static constraints = {
-        perfil validator: { Perfil r, UtilizadorPerfil ur ->
+        perfil validator: { Perfil r, UserPerfill ur ->
             if (ur.utilizador == null || ur.utilizador.id == null) return
             boolean existing = false
-            UtilizadorPerfil.withNewSession {
-                existing = UtilizadorPerfil.exists(ur.utilizador.id, r.id)
+            UserPerfill.withNewSession {
+                existing = UserPerfill.exists(ur.utilizador.id, r.id)
             }
             if (existing) {
                 return 'userRole.exists'

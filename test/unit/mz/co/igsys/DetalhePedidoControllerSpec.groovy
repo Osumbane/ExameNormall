@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(DetalhePedidoController)
-@Mock(DetalhePedido)
+@Mock(DetalheInscricao)
 class DetalhePedidoControllerSpec extends Specification {
 
     def populateValidParams(params) {
@@ -38,7 +38,7 @@ class DetalhePedidoControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def detalhePedido = new DetalhePedido()
+            def detalhePedido = new DetalheInscricao()
             detalhePedido.validate()
             controller.save(detalhePedido)
 
@@ -49,14 +49,14 @@ class DetalhePedidoControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            detalhePedido = new DetalhePedido(params)
+            detalhePedido = new DetalheInscricao(params)
 
             controller.save(detalhePedido)
 
         then:"A redirect is issued to the show action"
             response.redirectedUrl == '/detalhePedido/show/1'
             controller.flash.message != null
-            DetalhePedido.count() == 1
+            DetalheInscricao.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,7 +68,7 @@ class DetalhePedidoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def detalhePedido = new DetalhePedido(params)
+            def detalhePedido = new DetalheInscricao(params)
             controller.show(detalhePedido)
 
         then:"A model is populated containing the domain instance"
@@ -84,7 +84,7 @@ class DetalhePedidoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def detalhePedido = new DetalhePedido(params)
+            def detalhePedido = new DetalheInscricao(params)
             controller.edit(detalhePedido)
 
         then:"A model is populated containing the domain instance"
@@ -104,7 +104,7 @@ class DetalhePedidoControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def detalhePedido = new DetalhePedido()
+            def detalhePedido = new DetalheInscricao()
             detalhePedido.validate()
             controller.update(detalhePedido)
 
@@ -115,7 +115,7 @@ class DetalhePedidoControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            detalhePedido = new DetalhePedido(params).save(flush: true)
+            detalhePedido = new DetalheInscricao(params).save(flush: true)
             controller.update(detalhePedido)
 
         then:"A redirect is issues to the show action"
@@ -136,16 +136,16 @@ class DetalhePedidoControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def detalhePedido = new DetalhePedido(params).save(flush: true)
+            def detalhePedido = new DetalheInscricao(params).save(flush: true)
 
         then:"It exists"
-            DetalhePedido.count() == 1
+            DetalheInscricao.count() == 1
 
         when:"The domain instance is passed to the delete action"
             controller.delete(detalhePedido)
 
         then:"The instance is deleted"
-            DetalhePedido.count() == 0
+            DetalheInscricao.count() == 0
             response.redirectedUrl == '/detalhePedido/index'
             flash.message != null
     }

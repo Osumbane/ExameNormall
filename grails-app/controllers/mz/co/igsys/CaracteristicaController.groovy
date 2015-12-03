@@ -12,7 +12,7 @@ class CaracteristicaController {
 
     def index(int id) {
 
-        Produto produto = Produto.findById(id)
+        Evento produto = Produto.findById(id)
 
         Integer max = 10
         params.max = Math.min(max ?: 10, 100)

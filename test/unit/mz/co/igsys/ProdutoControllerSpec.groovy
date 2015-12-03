@@ -38,7 +38,7 @@ class ProdutoControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def produto = new Produto()
+            def produto = new Evento()
             produto.validate()
             controller.save(produto)
 
@@ -49,7 +49,7 @@ class ProdutoControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            produto = new Produto(params)
+            produto = new Evento(params)
 
             controller.save(produto)
 
@@ -68,7 +68,7 @@ class ProdutoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def produto = new Produto(params)
+            def produto = new Evento(params)
             controller.show(produto)
 
         then:"A model is populated containing the domain instance"
@@ -145,7 +145,7 @@ class ProdutoControllerSpec extends Specification {
             controller.delete(produto)
 
         then:"The instance is deleted"
-            Produto.count() == 0
+            Evento.count() == 0
             response.redirectedUrl == '/produto/index'
             flash.message != null
     }

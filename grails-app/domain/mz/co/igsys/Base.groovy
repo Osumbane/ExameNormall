@@ -3,14 +3,14 @@ package mz.co.igsys
 import javax.persistence.MappedSuperclass
 
 /**
- * @author Sacur Ibraimo
+ *
  */
 
 @MappedSuperclass
 class Base {
 
-    Utilizador alteradoPor
-    Utilizador criadoPor
+    User alteradoPor
+    User criadoPor
     Date dataCriacao = new Date()
     Date dataAlteracao
     boolean activo

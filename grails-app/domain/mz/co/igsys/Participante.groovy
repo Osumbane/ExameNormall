@@ -1,30 +1,36 @@
 package mz.co.igsys
 
 /**
- * @author Sacur Ibraimo
+
  */
 
-class Cliente extends Base {
+class Participante extends Base {
 
     String nome
+    String apelido
+    String grauAcademico
+    String empresa
+    Date dataNascimento
+    String sexo
     String nuit
     String endereco
     String telefone
-    String fax
-    String website
     String email
-    Utilizador utilizador
+    User utilizador
 
-    static hasMany = [pedidos: Pedido]
+    static hasMany = [pedidos: Inscricao]
 
     static constraints = {
         nome blank: false
+        apelido blank: false
+        grauAcademico blank:false
+        empresa blank: false
+        dataNascimento blank:false
         nuit blank: false, minSize: 9, maxSize: 9, unique: true
         endereco blank: false
         telefone blank: false
-        fax nullable: true
-        website nullable: true
         email email: true, nullable: true
+        sexo nullable: true, inList: ['Masc', 'Fem']
     }
 
     @Override

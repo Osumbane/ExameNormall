@@ -4,15 +4,15 @@ package mz.co.igsys
  * @author Sacur Ibraimo
  */
 
-class EstadoPedido extends Base {
+class EstadoInscricao extends Base {
 
     String estado
     String observacoes
 
-    static belongsTo = [pedido: Pedido]
+    static belongsTo = [inscricao: Inscricao]
 
     static constraints = {
-        estado blank: false, inList: ['SUBMETIDO', 'PAGO', 'EM PRODUCAO', 'ENTREGUE']
+        estado blank: false, inList: ['SUBMETIDO', 'PENDENTE', 'PENDENTE', 'SUSPENSA']
         observacoes nullable: true, maxSize: 1000
     }
 

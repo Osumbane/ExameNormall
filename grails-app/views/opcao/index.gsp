@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="admin">
 		<g:set var="entityName" value="${message(code: 'opcao.label', default: 'Opcao')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>

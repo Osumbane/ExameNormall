@@ -1,9 +1,9 @@
-<%@ page import="mz.co.igsys.Utilizador" %>
+<%@ page import="mz.co.igsys.User" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="admin">
-		<g:set var="entityName" value="${message(code: 'utilizador.label', default: 'Utilizador')}" />
+		<g:set var="entityName" value="${message(code: 'utilizador.label', default: 'User')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>

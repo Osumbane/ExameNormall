@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(ClienteController)
-@Mock(Cliente)
+@Mock(Participante)
 class ClienteControllerSpec extends Specification {
 
     def populateValidParams(params) {
@@ -38,7 +38,7 @@ class ClienteControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def cliente = new Cliente()
+            def cliente = new Participante()
             cliente.validate()
             controller.save(cliente)
 
@@ -49,14 +49,14 @@ class ClienteControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            cliente = new Cliente(params)
+            cliente = new Participante(params)
 
             controller.save(cliente)
 
         then:"A redirect is issued to the show action"
             response.redirectedUrl == '/cliente/show/1'
             controller.flash.message != null
-            Cliente.count() == 1
+            Participante.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,7 +68,7 @@ class ClienteControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def cliente = new Cliente(params)
+            def cliente = new Participante(params)
             controller.show(cliente)
 
         then:"A model is populated containing the domain instance"
@@ -84,7 +84,7 @@ class ClienteControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def cliente = new Cliente(params)
+            def cliente = new Participante(params)
             controller.edit(cliente)
 
         then:"A model is populated containing the domain instance"
@@ -104,7 +104,7 @@ class ClienteControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def cliente = new Cliente()
+            def cliente = new Participante()
             cliente.validate()
             controller.update(cliente)
 
@@ -115,7 +115,7 @@ class ClienteControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            cliente = new Cliente(params).save(flush: true)
+            cliente = new Participante(params).save(flush: true)
             controller.update(cliente)
 
         then:"A redirect is issues to the show action"
@@ -136,16 +136,16 @@ class ClienteControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def cliente = new Cliente(params).save(flush: true)
+            def cliente = new Participante(params).save(flush: true)
 
         then:"It exists"
-            Cliente.count() == 1
+            Participante.count() == 1
 
         when:"The domain instance is passed to the delete action"
             controller.delete(cliente)
 
         then:"The instance is deleted"
-            Cliente.count() == 0
+            Participante.count() == 0
             response.redirectedUrl == '/cliente/index'
             flash.message != null
     }

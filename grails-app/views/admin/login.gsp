@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Imagem Gráfica, Lda</title>
+		<title>DK EVENTOS, Lda</title>
 	</head>
 	<body>
         <div class="row">

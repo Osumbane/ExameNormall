@@ -1,4 +1,4 @@
-<%@ page import="mz.co.igsys.Perfil; mz.co.igsys.Utilizador" %>
+<%@ page import="mz.co.igsys.Perfil; mz.co.igsys.User" %>
 
 
 

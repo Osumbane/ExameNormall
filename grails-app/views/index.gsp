@@ -16,22 +16,25 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <asset:image src="slide01.jpg" alt="" />
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Serigrafia</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
                     <asset:image src="slide02.jpg" alt="" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Gráfica</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
+                            <h1>Lider a nivel de promocao de eventos</h1>
+
+                            <p>Eventos :Festas,Palestras,Workshop,etc.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item ">
+                    <asset:image src="slide01.jpg" alt=""/>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Festas</h1>
+
+                            <p>Contacte-nos ja para promover a sua festa</p>
+
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Contacte-nos ja</a></p>
                         </div>
                     </div>
                 </div>
@@ -39,8 +42,8 @@
                     <asset:image src="slide03.jpg" alt="" />
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>Consultoria</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <h1>Palestras</h1>
+                            <p>Salas enormes,salas climatizadas,salas super equipadas</p>
                             <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba mais</a></p>
                         </div>
                     </div>
@@ -59,21 +62,21 @@
         <div id="page-body" role="main">
             <div class="row">
                 <div class="col-md-4 box">
-                    <h3>Serigrafia</h3>
+                    <h3>Workshops</h3>
                     <asset:image src="slide01-thumb.jpg" alt="" />
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p>Contacte-nos de modo a promovermos o seu workshop</p>
 
                 </div>
                 <div class="col-md-4 box">
-                    <h3>Gráfica</h3>
+                    <h3>Conferencias</h3>
                     <asset:image src="slide02-thumb.jpg" alt="" />
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p>Promovemos Conferecias com salas com capacidade de 200pessoas</p>
 
                 </div>
                 <div class="col-md-4 box">
-                    <h3>Consultoria</h3>
+                    <h3>Formacaoes</h3>
                     <asset:image src="slide03-thumb.jpg" alt="" />
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p>Salas com equipamento informatico para formacoes</p>
 
                 </div>
             </div>

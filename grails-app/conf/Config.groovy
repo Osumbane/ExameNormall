@@ -118,8 +118,8 @@ log4j.main = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'mz.co.igsys.Utilizador'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mz.co.igsys.UtilizadorPerfil'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'mz.co.igsys.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mz.co.igsys.UserPerfill'
 grails.plugin.springsecurity.authority.className = 'mz.co.igsys.Perfil'
 grails.plugin.springsecurity.auth.loginFormUrl = '/admin/login'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl='/pedido/index'

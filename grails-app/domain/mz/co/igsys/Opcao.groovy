@@ -1,7 +1,7 @@
 package mz.co.igsys
 
 /**
- * @author Sacur Ibraimo
+ *
  */
 
 class Opcao extends Base {
@@ -11,7 +11,7 @@ class Opcao extends Base {
     double factor = 1
 
     static belongsTo = [caracteristica: Caracteristica]
-    static hasMany = [detalhes: DetalhePedido]
+    static hasMany = [detalhes: DetalheInscricao]
 
     static constraints = {
         nome blank: false

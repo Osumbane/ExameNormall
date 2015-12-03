@@ -84,7 +84,7 @@ class PedidoControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def pedido = new Pedido(params)
+            def pedido = new Inscricao(params)
             controller.edit(pedido)
 
         then:"A model is populated containing the domain instance"

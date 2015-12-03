@@ -1,14 +1,14 @@
 package mz.co.igsys
 
 /**
- * @author Sacur Ibraimo
+ *
  */
 class Caracteristica extends Base{
 
     String nome
     String descricao
 
-    static belongsTo = [produto: Produto]
+    static belongsTo = [produto: Evento]
     static hasMany = [opcoes: Opcao]
 
     static constraints = {

@@ -1,12 +1,12 @@
 package mz.co.igsys
 
-class Perfil implements Serializable {
+class Perfill implements Serializable {
 
     private static final long serialVersionUID = 1
 
     String authority
 
-    Perfil(String authority) {
+    Perfill(String authority) {
         this()
         this.authority = authority
     }
@@ -18,7 +18,7 @@ class Perfil implements Serializable {
 
     @Override
     boolean equals(other) {
-        is(other) || (other instanceof Perfil && other.authority == authority)
+        is(other) || (other instanceof Perfill && other.authority == authority)
     }
 
     @Override
